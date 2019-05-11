@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Enemies">
+      <UniqueIdentifier>{3389fe7d-9fa3-41c6-bf8a-29f9132d85ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items">
+      <UniqueIdentifier>{1d50b74c-0a79-47c2-b685-4c2d905a1f59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interable Objects">
+      <UniqueIdentifier>{9886e956-5b33-46ea-8abf-90a88f7b3830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items">
+      <UniqueIdentifier>{00fa2436-776c-4112-b20d-10e7cc029562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies">
+      <UniqueIdentifier>{6a976fdc-dcf7-4020-88ec-9f75b9eaf019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interable Objects">
+      <UniqueIdentifier>{71a5b21b-1e69-49be-a7d3-1ac02425ea45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemies\Ghost">
+      <UniqueIdentifier>{11fdedfd-0c08-4b53-9186-b378fb8cfa5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemies\Undead">
+      <UniqueIdentifier>{c7b91a6f-6ffb-470f-913b-21ed36a3f3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Ghost">
+      <UniqueIdentifier>{075059f3-3277-47f2-84b7-f11152270464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Undead">
+      <UniqueIdentifier>{02f3c683-f4e8-4c8b-9d37-797ed60a3d04}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Source Files\Interable Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files\Enemies\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="HeadlessPriest.cpp">
+      <Filter>Source Files\Enemies\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Source Files\Enemies\Undead</Filter>
+    </ClCompile>
+    <ClCompile Include="Undead.cpp">
+      <Filter>Source Files\Enemies\Undead</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Source Files\Enemies\Undead</Filter>
+    </ClCompile>
+    <ClCompile Include="HauntedArmor.cpp">
+      <Filter>Source Files\Enemies\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Poltergeist.cpp">
+      <Filter>Source Files\Enemies\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="GhostVacuum.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Journal.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Letter.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="HolyWater.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Head.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Shovel.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Roomsetup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ButlerBoss.cpp">
+      <Filter>Source Files\Enemies\Ghost</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Header Files\Interable Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="HauntedArmor.h">
+      <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="HeadlessPriest.h">
+      <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Header Files\Enemies\Undead</Filter>
+    </ClInclude>
+    <ClInclude Include="Undead.h">
+      <Filter>Header Files\Enemies\Undead</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Header Files\Enemies\Undead</Filter>
+    </ClInclude>
+    <ClInclude Include="Poltergeist.h">
+      <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostVacuum.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Journal.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Letter.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="HolyWater.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicBook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shovel.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Head.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomSetup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ButlerBoss.h">
+      <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
