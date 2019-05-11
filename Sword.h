@@ -6,6 +6,4 @@ class Sword : public Item
 public:
 	//constructor
 	Sword(std::string name);
-
 };
-

@@ -8,4 +8,3 @@ public:
 	//constructor
 	GhostVacuum(std::string name);
 };
-
