@@ -50,6 +50,7 @@ int main()
 		//read the user input
 		std::cout << "Enter Command: " << std::endl;
 		std::getline(std::cin, userInput);
+		system("CLS");
 		//parse the string to get action and object
 		std::size_t pos = userInput.find(" ");
 		std::string action = Sanitize(userInput.substr(0, pos));
