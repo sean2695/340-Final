@@ -7,4 +7,3 @@ public:
 	//constructor
 	Head(std::string name);
 };
-

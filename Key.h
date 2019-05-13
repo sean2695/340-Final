@@ -6,5 +6,4 @@ class Key : public Item
 public:
 	//constructor
 	Key(std::string name);
-	
 };

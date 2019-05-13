@@ -7,4 +7,3 @@ public:
 	//constructor
 	Shovel(std::string name);
 };
-

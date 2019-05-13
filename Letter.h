@@ -8,8 +8,4 @@ public:
 	Letter(std::string name);
 	//print out content in the letter
 	void read();
-
-
-
 };
-

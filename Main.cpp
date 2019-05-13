@@ -1,8 +1,12 @@
 #include <vector>
 #include <iostream>
+#include <ctype.h> //toupper()
+#include <algorithm>    // std::transform
 #include "Combat.h"
 #include "Door.h"
 #include "RoomSetUp.h"
+
+std::string Sanitize(std::string word);
 
 
 int main()
@@ -32,7 +36,7 @@ int main()
 	//set currentRoom equal to the first
 	currentRoom = dungeon[0];
 	
-	//print openeing dialouge
+	//print opening dialouge
 	std::cout << "You enter through a rusty gate to find yourself in a run down courtyard. The building you have come to explore lays before you, but as you step into the grounds an ghostly aparition of a butler appears." << std::endl;
 	std::cout << currentRoom->getDescription() << std::endl;
 	//while loop to read player commands
@@ -46,13 +50,14 @@ int main()
 		//read the user input
 		std::cout << "Enter Command: " << std::endl;
 		std::getline(std::cin, userInput);
+		system("CLS");
 		//parse the string to get action and object
-		std::size_t space = userInput.find(" ");
-		std::string action = userInput.substr(0, space);
-		std::string object = userInput.substr(space + 1, userInput.size() - 1);
+		std::size_t pos = userInput.find(" ");
+		std::string action = Sanitize(userInput.substr(0, pos));
+		std::string object = Sanitize(userInput.substr(pos + 1));
 
 		//determine which action is typed and do the apprioriate if statement
-		if (action == "Move" || action == "move" || action == "MOVE")
+		if (action == "MOVE")
 		{
 			if (object == "NORTH" || object == "EAST" || object == "SOUTH" || object == "WEST")
 			{
@@ -63,20 +68,20 @@ int main()
 				std::cout << "Not a valid direction." << std::endl;
 			}
 		}
-		else if (action == "search" || action == "Search" || action == "SEARCH")
+		else if (action == "SEARCH")
 		{  
 			currentRoom = player.search(dungeon, currentRoom, object);
 			if (object == "THE SHINING" )
 				currentRoom->setCanLeaveEast(true);
 		}
-		else if (action == "take" || action == "Take" || action == "TAKE")
+		else if (action == "TAKE")
 		{
 			if (currentRoom->cantakeItems)
 			{
 				int index = 0;
 				for (Item e : currentRoom->getItemsInRoom())
 				{
-					if (object == "key" || object == "Key" || object == "KEY")
+					if (object == "KEY")
 					{
 						if (currentRoom == dungeon[2])
 						{
@@ -111,12 +116,10 @@ int main()
 					}
 					index++;
 				}
-				
 			}
-			
-			
 		}
-		else if (action == "open" || action == "Open" || action ==  "OPEN")
+
+		else if (action ==  "OPEN")
 		{
 			if (currentRoom == dungeon[0])
 				frontDoor.openDoor(player, currentRoom);
@@ -127,22 +130,34 @@ int main()
 			else
 				std::cout << "You need to open your mind and think of a better option." << std::endl;
 		}
-		else if (action == "look" || action == "Look" || action == "LOOK")
+		else if (action == "LOOK")
 		{
 			std::cout << currentRoom->getDescription() << std::endl;
 		}
-		else if (action == "inventory" || action == "Inventory" || action == "INVENTORY")
+		else if (action == "INVENTORY")
 		{
 			player.displayInventory();
 		}
-		else if (action == "use" || action == "Use" || action == "USE")
+		else if (action == "USE")
 		{
 			player.use(object, currentRoom);
 		}
 		else if (action == "HELP")
 		{
-			std::cout << "For best results keep CAPS LOCK on. Options are \nmove/Move/MOVE (NORTH, EAST, SOUTH, WEST) \ntake/Take/TAKE (item to take) \ninventory/Inventory/INVENTORY to display your items \nlook/Look/LOOK to get the current room's description \nopen/Open/OPEN to unlock any locked doors \nsearch/Search/SEARCH to investigate certain objects around a room \nuse (item) to use an item (only works in certain scenarios) " << std::endl;
+			std::cout << "Use the following options to help you through the game.\n"
+						 "MOVE (NORTH, EAST, SOUTH, WEST)\n"
+						 "TAKE (item to take)\n"
+						 "INVENTORY to display your items \n"
+				         "LOOK to get the current room's description \n"
+				         "OPEN to unlock any locked doors \n"
+				         "SEARCH to investigate certain objects around a room \n"
+						 "USE (item) to use an item (only works in certain scenarios)" << std::endl;
 		}
 	}
+}
 
+std::string Sanitize(std::string word) {
+	//sanitize input to remove case sensitivity
+	std::transform(word.begin(), word.end(), word.begin(), ::toupper);
+	return word;
 }
