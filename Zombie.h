@@ -10,6 +10,4 @@ public:
 	//function to call to attack
 	void bite();
 
-	void lowerHp(int dmg);
-
 };

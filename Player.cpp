@@ -20,9 +20,9 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			searchRoom = i;
 	}
 	// call a switch case based on which room you are currently in
-	switch (searchRoom)
+	switch (searchRoom) 
 	{
-		// if case is 0 then search in dungeon[0] for key words
+	// if case is 0 then search in dungeon[0] for key words
 	case 0:
 		if (searching.find("SWORD") != std::string::npos || searching.find("KNIGHT") != std::string::npos || searching.find("SHIELD") != std::string::npos)
 		{
@@ -31,12 +31,12 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 		std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 1:
-		// if case is 1 then search in dungeon[1] for key words
+	// if case is 1 then search in dungeon[1] for key words
 		std::cout << "There is nothing of interest here" << std::endl;
 		break;
 	case 2:
-		// if case is 1 then search in dungeon[1] for key words
-		if (searching.find("GRAVE") != std::string::npos || (searching.find("SHOVEL") != std::string::npos && this->inventoryContains(searching)))
+	// if case is 1 then search in dungeon[1] for key words
+		if (searching.find("GRAVE") != std::string::npos)
 		{
 			//check to see if grave was already dug out
 			if (room->cantakeItems)
@@ -66,8 +66,8 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 				std::cout << "You've made a grave mistake, I'd like to see you dig your way out of this one." << std::endl;
 		}
 		//if the player typed something else than print
-		else
-			std::cout << "There is nothing of interest in that object" << std::endl;
+		else 
+		std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 3:
 		// if case is 3 then search in dungeon[3] for key words
@@ -104,7 +104,7 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 				std::cout << "Its an altar containing the book on magic. The remaining spells are too complex for you to learn." << std::endl;
 			}
 		}
-		else
+		else 
 			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 4:
@@ -117,7 +117,7 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 		else if (searching.find("ARMOR") != std::string::npos)
 		{
 			eventInRoom.hauntedArmorMoves();
-			*this = this->combatLoop(room, dungeon, *this);
+		*this = this->combatLoop(room, dungeon, *this);
 			std::cout << "The pieces of armor clatter to the ground, and inside the chestpiece you can see a key." << std::endl;
 			room->setCanTakeItems();
 		}
@@ -205,7 +205,7 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 		// if case is 9 then search in dungeon[9] for key words
 		if (searching.find("BACKPACK") != std::string::npos || searching.find("mannequin") != std::string::npos)
 		{
-
+			
 			std::cout << "The backpack beeps faintly as led lights flash blue and green. There is a small sticked on one side that reads \n'The Who Yah Gonna Call V 2.0 \nNow with 5x times the suction! \nJust point it at a ghost, turn it on, and watch it suck harder than Monica Lewinsky'" << std::endl;
 		}
 		else if (searching.find("DESK") != std::string::npos || searching.find("paper") != std::string::npos)
@@ -221,7 +221,7 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			}
 			if (letterTaken)
 				std::cout << "Its a desk with nothing on it." << std::endl;
-
+			
 		}
 		else
 			std::cout << "There is nothing of interest in that object" << std::endl;
@@ -249,7 +249,7 @@ void Player::displayInventory()
 {
 	for (Item e : this->inventory)
 	{
-		std::cout << e.getName() << std::endl;
+		std::cout << e.getName() <<std::endl;
 	}
 }
 
@@ -276,7 +276,7 @@ bool Player::inventoryContains(std::string item)
 //have the player use specific items
 Room* Player::use(std::string object, Room* room)
 {
-
+	
 	if (object == "LETTER")
 	{
 		Letter letter = Letter("LETTER");
@@ -287,7 +287,7 @@ Room* Player::use(std::string object, Room* room)
 		Journal journal = Journal("JOURNAL");
 		journal.read();
 	}
-
+	
 	return room;
 }
 
@@ -320,7 +320,6 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 {
 	// weapon the player choose to use
 	std::string weapon;
-	int dmg = 0;
 	//determine which room it is and select the correct enemy
 	if ((room == dungeon[1] || room == dungeon[7]) && room->getZombie()->getisDefeated() == false)
 	{
@@ -347,12 +346,24 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
-				dmg = 1;
+			{
+				std::cout << "Your fist drives home into the zombies decayed face." << std::endl;
+				enemy->lowerHp();
+			}
 			if (weapon == "SHOVEL")
-				dmg = 2;
+			{
+				std::cout << "You bash your shovel agaisnt the zombies skull hearing a satisfying crunch." << std::endl;
+				enemy->lowerHp();
+				enemy->lowerHp();
+
+			}
 			if (weapon == "SWORD")
-				dmg = 3;
-			enemy->lowerHp(dmg);
+			{
+				std::cout << "Your blade flies true, lopping off the zombies head with one stroke." << std::endl;
+				enemy->lowerHp();
+				enemy->lowerHp();
+				enemy->lowerHp();
+			}
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
 			{
@@ -399,12 +410,24 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
-				dmg = 1;
+			{
+				std::cout << "You throw a punch agaisnt the skeleton exposed ribcage." << std::endl;
+				enemy->lowerHp();
+			}
 			if (weapon == "SWORD")
-				dmg = 2;
+			{
+				std::cout << "Your sword bounces of the skull of the creature, leaving a large dent." << std::endl;
+				enemy->lowerHp();
+				enemy->lowerHp();
+
+			}
 			if (weapon == "SHOVEL")
-				dmg = 3;
-			enemy->lowerHp(dmg);
+			{
+				std::cout << "You sweep your shovel under its legs knocking them away and crumbling the remaining bones into an oddly stacked pile." << std::endl;
+				enemy->lowerHp();
+				enemy->lowerHp();
+				enemy->lowerHp();
+			}
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
 			{
@@ -463,18 +486,35 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
-				dmg = 0;
-			if (weapon == "SWORD")
-				int dmg = 2;
-			if (weapon == "HOLY WATER")
-				int dmg = 50;
-			if (weapon == "BANISH")
-				int dmg = 100;
-			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
-				int dmg = 98;
-			enemy->lowerHp(dmg);
-			if (dmg == 0)
+			{
+				std::cout << "You feel a finger break as your fist strikes the armor." << std::endl;
 				player.lowerHP();
+			}
+			if (weapon == "SWORD")
+			{
+				int dmg = 2;
+				std::cout << "The sword bounces off the hard steel" << std::endl;
+				enemy->lowerHp(dmg);
+			}
+			if (weapon == "HOLY WATER")
+			{
+				int dmg = 50;
+				std::cout << "Mist pours from the hollow part of the armor as a scream rings out." << std::endl;
+				enemy->lowerHp(dmg);
+			}
+			if (weapon == "BANISH")
+			{
+				int dmg = 100;
+				std::cout << "The armor crashes the ground in pieces, the spirit holding it together banished." << std::endl;
+				enemy->lowerHp(dmg);
+			}
+			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
+			{
+				int dmg = 98;
+				std::cout << "A phantom takes form in the armor, presenting a body to strike." << std::endl;
+				enemy->lowerHp(dmg);
+				enemy->setCorporal();
+			}
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
 			{
@@ -497,18 +537,18 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 		room->getArmor()->setDefeated();
 	}
 	//determine which room it is and select the correct enemy
-
+		
 	else if ((room == dungeon[5] && room->getPoltergeist()->getisDefeated() == false) || (room == dungeon[8] && room->getPoltergeist()->getisDefeated() == false))
 	{
 		Poltergeist* enemy = room->getPoltergeist();
 		std::cout << "The " + enemy->getName() + " attacks!" << std::endl;
 		//continue running loop until player or enemy are dead
-
+		
 		while (player.getHp() > 0)
 		{
 			MagicBook magic = MagicBook();
-			//pick weapon and check if its valid
-
+		//pick weapon and check if its valid
+		
 			while (true)
 			{
 				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession";
@@ -535,31 +575,55 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
 			}
 			//depending on which weapon selected preform action
-
+	
 			if (weapon == "FIST")
 			{
-				if (!enemy->getisCorporal())
-					dmg = -1;
+				if (enemy->getisCorporal())
+					std::cout << "Your hand swings at nothing but air, and you feel foolish as laugh echoes around the room from the spirit." << std::endl;
 				else
+				{
 					int dmg = 1;
+					std::cout << "You strike at the now embodied spirit with your fists, your punch striking it in the gut." << std::endl;
+					enemy->lowerHp(dmg);
+				}
 			}
 			if (weapon == "SWORD")
 			{
-				if (!enemy->getisCorporal())
-					int dmg = 0;
+				if (enemy->getisCorporal())
+					std::cout << "You feel a presence behind you and you turn cleaving the empty space with a downward slash but strike nothing." << std::endl;
 				else
+				{
 					int dmg = 2;
+					std::cout << "Your sword slices the now solid spectre, cuasing it to ooze ectoplasm as if it were bleeding." << std::endl;
+					enemy->lowerHp(dmg);
+				}
 
 			}
 			if (weapon == "HOLY WATER")
+			{
 				int dmg = 50;
+				std::cout << "You spray the corners of the room with holy water, and a hiss bleeds from the walls" << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			if (weapon == "BANISH")
+			{
 				int dmg = 100;
+				std::cout << "The ghost lets loose a blood curdling scream and you feel the evil presence fade from the room." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
+			{
 				int dmg = 98;
+				std::cout << "A phantom takes form room, presenting a body to strike." << std::endl;
+				enemy->setCorporal();
+				enemy->lowerHp(dmg);
+			}
 			if (weapon == "BACKPACK")
-				int dmg = 101;
-			enemy->lowerHp(dmg);
+			{
+				int dmg = 100;
+				std::cout << "The vacuum humms as the spirit is pulled into and trapped." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
 			{
@@ -568,7 +632,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			else
 				break;
-		}
+		}	
 		// if player hp is 0 then game over
 		if (player.getHp() <= 0)
 		{
@@ -582,8 +646,8 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 		room->getPoltergeist()->setDefeated();
 	}
 	//determine which room it is and select the correct enemy
-
-
+		
+		
 	else if (room == dungeon[10])
 	{
 		ButlerBoss* enemy = room->getButler();
@@ -595,7 +659,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			MagicBook magic = MagicBook();
 			bool isCorporal = false;
 			//pick weapon and check if its valid
-
+		
 			while (true)
 			{
 				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession";
@@ -607,7 +671,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 					std::cout << std::endl;
 				std::getline(std::cin, weapon);
 				//depending on which weapon selected preform action
-
+	
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || (weapon == "BANISH" && player.canUseMagic) || (weapon == "MAKE CORPORAL" && player.canUseMagic) || (weapon == "BACKPACK" && player.inventoryContains("BACKPACK")))
 				{
 					break;
@@ -627,32 +691,48 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			if (weapon == "FIST")
 			{
 				if (enemy->getisCorporal() == false)
-					dmg = -1;
+					std::cout << "The Bulter grins wickedly at your attempt, 'No mortal hands can defeat me'." << std::endl;
 				else
 				{
-					dmg = 1;
+					int dmg = 1;
+					std::cout << "You throw a heavy punch agaisnt the Butler's jaw, and he staggers back." << std::endl;
+					enemy->lowerHp(dmg);
 				}
 			}
 			if (weapon == "SWORD")
 			{
 				if (enemy->getisCorporal() == false)
-					dmg = 0;
+					std::cout << "You slash across the abodemen of the ghostly butler, only to see your swing pass right thorough him.." << std::endl;
 				else
 				{
-					dmg = 2;
+					int dmg = 2;
+					std::cout << "You strike at the now embodied spirit with your fists, your punch striking it in the gut." << std::endl;
+					enemy->lowerHp(dmg);
 				}
+
 			}
 			if (weapon == "HOLY WATER")
+			{
 				int dmg = 25;
+				std::cout << "You splash Holy Water onto the Butler, as his spirit sizzles as he grunts in pain." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			if (weapon == "BANISH")
-				dmg = -2;
+			{
+				std::cout << "Laughing at your failed spell the butler then shouts 'You can not banish me like some amatuer spirit!'" << std::endl;
+			}
 			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
 			{
 				int dmg = 90;
+				std::cout << "The butler gasps as his transparent body solidifies into a solid mass." << std::endl;
+				enemy->lowerHp(dmg);
+				enemy->setCorporal();
 			}
 			if (weapon == "BACKPACK")
 			{
 				int dmg = 95;
+				std::cout << "The vacuum whirs as it pulls the bellowing Butler into its hose and into the containtment unit. But just as you think its over the unit begins to buzz loudly and cracks, allowing the Butler to free himself and breaks the backpack." << std::endl;
+				enemy->lowerHp(dmg);
 				int index = 0;
 				for (Item e : inventory)
 				{
@@ -660,10 +740,9 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 						this->inventory.erase(this->inventory.begin() + index);
 					index++;
 				}
-			}
-			enemy->lowerHp(dmg);
+			}	
 			// if enemy isn't dead it attacks
-
+		
 			if (enemy->getHp() > 0)
 			{
 				if (loopCount == 0)
@@ -679,7 +758,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 					player.lowerHP();
 					loopCount++;
 				}
-				else if (loopCount == 2)
+				else if (loopCount == 1)
 				{
 					enemy->curse();
 					player.lowerHP();
@@ -706,5 +785,4 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 	}
 	return player;
 }
-
 
