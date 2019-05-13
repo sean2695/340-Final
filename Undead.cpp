@@ -7,12 +7,6 @@ Undead::Undead(std::string name)
 	this->hp = 3;
 }
 
-//function to lower Undead's hp
-void Undead::lowerHp()
-{
-	this->hp--;
-}
-
 //return undead's hp
 int Undead::getHp()
 {
