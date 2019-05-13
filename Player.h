@@ -5,8 +5,15 @@
 #include "GhostVacuum.h"
 #include "Letter.h"
 #include "Journal.h"
+#include "Potion.h"
+#include "SuperPotion.h"
+#include "BlessedRock.h"
 #include "MagicBook.h"
 #include <stdlib.h>
+#include <ctype.h>		//toupper()
+#include <algorithm>    // std::transform
+#include <list>
+#include <time.h>       /* time */
 
 class Player
 {
@@ -34,6 +41,8 @@ public:
 	void setCanUseMagic();
 	//method to run to intiate combat
 	Player combatLoop(Room* room, std::vector<Room*> dungeon, Player player);
+	//makes strings all upper
+	std::string Sanitize(std::string word);
 
 
 private:
@@ -43,5 +52,6 @@ private:
 	std::vector <Item> inventory;
 	//boolean to express if player can use magic
 	bool canUseMagic = false;
+	
 };
 

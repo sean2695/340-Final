@@ -332,7 +332,9 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			{
 				//pick weapon and check if its valid
 				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession" << std::endl;
+				
 				std::getline(std::cin, weapon);
+				weapon = player.Sanitize(weapon);
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "SHOVEL" && this->inventoryContains("SHOVEL")))
 				{
 					break;
@@ -397,6 +399,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			{
 				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession" << std::endl;
 				std::getline(std::cin, weapon);
+				weapon = player.Sanitize(weapon);
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "SHOVEL" && this->inventoryContains("SHOVEL")))
 				{
 					break;
@@ -469,6 +472,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				else
 					std::cout << std::endl;
 				std::getline(std::cin, weapon);
+				weapon = player.Sanitize(weapon);
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || (weapon == "BANISH" && player.canUseMagic) || (weapon == "MAKE CORPORAL" && player.canUseMagic))
 				{
 					break;
@@ -559,6 +563,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				else
 					std::cout << std::endl;
 				std::getline(std::cin, weapon);
+				weapon = player.Sanitize(weapon);
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || (weapon == "BANISH" && player.canUseMagic) || (weapon == "MAKE CORPORAL" && player.canUseMagic) || (weapon == "BACKPACK" && player.inventoryContains("BACKPACK")))
 				{
 					break;
@@ -644,10 +649,10 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 		//otherwise set the enemy to defeated
 		std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
 		room->getPoltergeist()->setDefeated();
+		
 	}
 	//determine which room it is and select the correct enemy
-		
-		
+	
 	else if (room == dungeon[10])
 	{
 		ButlerBoss* enemy = room->getButler();
@@ -670,6 +675,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				else
 					std::cout << std::endl;
 				std::getline(std::cin, weapon);
+				weapon = player.Sanitize(weapon);
 				//depending on which weapon selected preform action
 	
 				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || (weapon == "BANISH" && player.canUseMagic) || (weapon == "MAKE CORPORAL" && player.canUseMagic) || (weapon == "BACKPACK" && player.inventoryContains("BACKPACK")))
@@ -691,7 +697,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			if (weapon == "FIST")
 			{
 				if (enemy->getisCorporal() == false)
-					std::cout << "The Bulter grins wickedly at your attempt, 'No mortal hands can defeat me'." << std::endl;
+					std::cout << "The Butler grins wickedly at your attempt, 'No mortal hands can defeat me'." << std::endl;
 				else
 				{
 					int dmg = 1;
@@ -783,6 +789,37 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 		std::cin >> a;
 		exit(0);
 	}
+
+	//COMBAT LOOP ENDS HERE
+	srand(time(NULL));
+
+	int randomDrop = rand() % 50 + 1;
+
+	//Potion* potion = new Potion("Potion");
+	if (randomDrop <= 10) {
+		Potion drop("Potion");
+		player.take(drop);
+		std::cout << "You found a Potion on the ground." << std::endl;
+	}
+	else if (randomDrop > 10 && randomDrop <= 15) {
+		SuperPotion drop("Super Potion");
+		player.take(drop);
+		std::cout << "You found a Super Potion on the ground." << std::endl;
+	}
+	else if (randomDrop > 15 && randomDrop <= 16) {
+		BlessedRock drop("Blessed Rock");
+		player.take(drop);
+		std::cout << "You found a Blessed Rock on the ground." << std::endl;
+	}
+	else {
+		std::cout << "You found nothing." << std::endl;
+		//no drop
+	}
 	return player;
 }
 
+std::string Player::Sanitize(std::string word) {
+	//sanitize input to remove case sensitivity
+	std::transform(word.begin(), word.end(), word.begin(), ::toupper);
+	return word;
+}
