@@ -80,20 +80,6 @@ public:
 
 
 private:
-	
-		//Items
-		std::vector <Item> roomItems;
-		//Enemies
-	        Ghoul* ghoul;
-                Vampire* vampire;	
-		Zombie* zombie;
-		Skeleton* skeleton;
-		HeadlessPriest* priest;
-		Poltergeist* poltergeist;
-		HauntedArmor* armor;
-		ButlerBoss* butler;
-		//description
-		std::string description;
 
 	//Items
 	std::vector <Item> roomItems;
@@ -104,6 +90,8 @@ private:
 	Poltergeist* poltergeist;
 	HauntedArmor* armor;
 	ButlerBoss* butler;
+	Ghoul* ghoul;
+	Vampire* vampire;
 
 	Snake* snake;
 	Wolf* wolf;

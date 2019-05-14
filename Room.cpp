@@ -56,7 +56,6 @@ Room* Room::getRoom(std::string direction)
 		std::cout << this->getDescription() << std::endl;
 		return this;
 	}
-
 }
 
 //setters for can leave in specific directions
@@ -112,19 +111,14 @@ void Room::setCanTakeItems()
 //get enemies from room
 
 Ghoul* Room::getGhoul()
-
 {
-
 	return this->ghoul;
-
 }
 
 Vampire* Room::getVampire()
 {
 	return this->vampire;
 }
-
-
 
 HeadlessPriest* Room::getPriest()
 {
