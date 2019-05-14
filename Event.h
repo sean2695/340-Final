@@ -15,6 +15,8 @@ public:
 	void PoletergeistThrowsFood();
 	void ZombieAttacksFromCloset();
 	void BookshelfMoves();
+	void ghouls_surface();
+	void vampireFeeds();
 	
 };
 
