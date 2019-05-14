@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="BlessedRock.cpp" />
     <ClCompile Include="ButlerBoss.cpp" />
+    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="Ghost.cpp" />
@@ -42,14 +43,17 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Shovel.cpp" />
     <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="Snake.cpp" />
     <ClCompile Include="SuperPotion.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Undead.cpp" />
+    <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlessedRock.h" />
     <ClInclude Include="ButlerBoss.h" />
+    <ClInclude Include="Creature.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Ghost.h" />
@@ -70,9 +74,11 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="Shovel.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="Snake.h" />
     <ClInclude Include="SuperPotion.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Undead.h" />
+    <ClInclude Include="Wolf.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

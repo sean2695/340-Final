@@ -40,9 +40,4 @@ std::string Ghost::getName()
 {
 	return this->name;
 }
-// lower the ghost's hp by the amount passed in
-void Ghost::lowerHp(int dmg)
-{
-	this->hp = this->hp-dmg;
-}
 

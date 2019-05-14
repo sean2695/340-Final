@@ -11,5 +11,6 @@ public:
 	void stab();
 	void curse();
 
+	void lowerHp(int dmg);
 };
 
