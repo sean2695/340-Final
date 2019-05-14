@@ -25,13 +25,13 @@ void MagicBook::displaySpells()
 void MagicBook::increaseMagicLevel()
 {
 	this->magicLevel++;
+	std::cout << "Your magic level has increased!" << std::endl;
+
 }
 
 void MagicBook::expGain(std::string enemy)
 {
-	if (enemy == "Zombie")
-		this->magicExp++;
-	else if (enemy == "Skeleton" || enemy == "Snake" || enemy == "Library Spirit")
+	if (enemy == "Zombie" || enemy == "Skeleton" || enemy == "Snake" || enemy == "Library Spirit")
 		this->magicExp = magicExp + 2;
 	else if (enemy == "Wolf" || enemy == "Vampire")
 		this->magicExp = magicExp + 4;

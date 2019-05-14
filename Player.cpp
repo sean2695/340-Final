@@ -1139,21 +1139,21 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 
 			if (weapon == "FIST")
 			{
-				dmg = 0;
+				dmg = 10;
 			}
 			if (weapon == "SWORD")
 			{
-				dmg = 40;
+				dmg = 50;
 			}
 			if (weapon == "ENCHANTED SWORD")
 			{
-				dmg == 150;
+				dmg == 75;
 			}
 			if (weapon == "HOLY WATER")
-				dmg = 50;
+				dmg = 0;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
-				dmg = 100;
+				dmg = 150;
 			}
 			enemy->lowerHp(dmg);
 			// if enemy isn't dead it attacks

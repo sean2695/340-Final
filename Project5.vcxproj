@@ -33,6 +33,7 @@
     <ClCompile Include="HolyWater.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Lever.cpp" />
+    <ClCompile Include="Lich.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Roomsetup.cpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="HolyWater.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Lever.h" />
+    <ClInclude Include="Lich.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="RoomSetup.h" />
