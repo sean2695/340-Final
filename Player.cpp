@@ -277,15 +277,40 @@ bool Player::inventoryContains(std::string item)
 Room* Player::use(std::string object, Room* room)
 {
 
-	if (object == "LETTER")
+	if (object == "LETTER" && inventoryContains("LETTER"))
 	{
 		Letter letter = Letter("LETTER");
 		letter.read();
 	}
-	else if (object == "JOURNAL")
+	else if (object == "JOURNAL" && inventoryContains("JOURNAL"))
 	{
 		Journal journal = Journal("JOURNAL");
 		journal.read();
+	}
+	else if (object == "POTION" && inventoryContains("POTION"))
+	{
+		if (hp > 7) {
+			std::cout << "Your HP is already full" << std::endl;
+		}
+		else if (hp > 3 && hp < 8) {
+			this->hp = 8;
+			std::cout << "Your HP is now full" << std::endl;
+			//inventory.erase(std::remove(inventory.begin(), inventory.end(), "POTION"), inventory.end());
+		}
+		else {
+			this->hp += 5;
+			std::cout << "Your HP is now " << hp << ". " << std::endl;
+		}
+	}
+	else if (object == "SUPER POTION" && inventoryContains("SUPER POTION"))
+	{
+		if (hp > 7) {
+			std::cout << "Your HP is already full" << std::endl;
+		}
+		else {
+			this->hp = 8;
+			std::cout << "Your HP is now full" << std::endl;
+		}
 	}
 
 	return room;
@@ -350,10 +375,16 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
 				dmg = 1;
-			if (weapon == "SHOVEL")
+			else if (weapon == "SHOVEL")
 				dmg = 2;
-			if (weapon == "SWORD")
+			else if (weapon == "SWORD")
 				dmg = 3;
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				int dmg = 10;
+				std::cout << "You launch the stone imbued with holy powers." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			enemy->lowerHp(dmg);
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
@@ -403,10 +434,16 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
 				dmg = 1;
-			if (weapon == "SWORD")
+			else if (weapon == "SWORD")
 				dmg = 2;
-			if (weapon == "SHOVEL")
+			else if (weapon == "SHOVEL")
 				dmg = 3;
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				int dmg = 10;
+				std::cout << "You launch the stone imbued with holy powers." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			enemy->lowerHp(dmg);
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
@@ -467,13 +504,19 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			//depending on which weapon selected preform action
 			if (weapon == "FIST")
 				dmg = 0;
-			if (weapon == "SWORD")
+			else if (weapon == "SWORD")
 				int dmg = 2;
-			if (weapon == "HOLY WATER")
+			else if (weapon == "HOLY WATER")
 				int dmg = 50;
-			if (weapon == "BANISH")
+			else if (weapon == "BANISH")
 				int dmg = 100;
-			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				int dmg = 10;
+				std::cout << "You launch the stone imbued with holy powers." << std::endl;
+				enemy->lowerHp(dmg);
+			}
+			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
 				int dmg = 98;
 			enemy->lowerHp(dmg);
 			if (dmg == 0)
@@ -557,12 +600,18 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			if (weapon == "HOLY WATER")
 				int dmg = 50;
-			if (weapon == "BANISH")
+			else if (weapon == "BANISH")
 				int dmg = 100;
-			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
+			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
 				int dmg = 98;
-			if (weapon == "BACKPACK")
+			else if (weapon == "BACKPACK")
 				int dmg = 101;
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				int dmg = 10;
+				std::cout << "You launch the stone imbued with holy powers." << std::endl;
+				enemy->lowerHp(dmg);
+			}
 			enemy->lowerHp(dmg);
 			// if enemy isn't dead it attacks
 			if (enemy->getHp() > 0)
@@ -638,7 +687,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 					dmg = 1;
 				}
 			}
-			if (weapon == "SWORD")
+			else if (weapon == "SWORD")
 			{
 				if (enemy->getisCorporal() == false)
 					dmg = 0;
@@ -647,15 +696,15 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 					dmg = 2;
 				}
 			}
-			if (weapon == "HOLY WATER")
+			else if (weapon == "HOLY WATER")
 				int dmg = 25;
-			if (weapon == "BANISH")
+			else if (weapon == "BANISH")
 				dmg = -2;
-			if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
+			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
 			{
 				int dmg = 90;
 			}
-			if (weapon == "BACKPACK")
+			else if (weapon == "BACKPACK")
 			{
 				int dmg = 95;
 				int index = 0;
@@ -665,6 +714,12 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 						this->inventory.erase(this->inventory.begin() + index);
 					index++;
 				}
+			}
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				int dmg = 10;
+				std::cout << "You launch the stone imbued with holy powers." << std::endl;
+				enemy->lowerHp(dmg);
 			}
 			enemy->lowerHp(dmg);
 			// if enemy isn't dead it attacks
