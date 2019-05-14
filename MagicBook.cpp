@@ -41,7 +41,6 @@ void MagicBook::expGain(std::string enemy)
 		this->magicExp = magicExp + 6;
 	else if (enemy == "Carson")
 		this->magicExp = magicExp + 8;
-	std::cout << this->magicExp << std::endl;
 	if (magicExp >= 8)
 	{
 		this->increaseMagicLevel();

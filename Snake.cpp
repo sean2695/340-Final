@@ -6,7 +6,6 @@ Snake::Snake(std::string name) : Creature(name)
 {
 	this->hp = 3;
 	int swarmCheck = rand() % 100;
-	std::cout << swarmCheck << std::endl;
 	if (swarmCheck > 50)
 	{
 		this->swarm = true;

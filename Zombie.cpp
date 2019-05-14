@@ -19,7 +19,7 @@ void Zombie::lowerHp(int dmg)
 	if (dmg == 1)
 	{
 		std::cout << "Your fist drives home into the zombies decayed face." << std::endl;
-		this->hp - dmg;
+		this->hp = hp - dmg;
 	}
 	if (dmg == 2)
 	{

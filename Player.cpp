@@ -443,7 +443,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				dmg = 3;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
-				int dmg = 10;
+				dmg = 10;
 				std::cout << "You launch the stone imbued with holy powers." << std::endl;
 				enemy->lowerHp(dmg);
 			}
@@ -502,7 +502,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				dmg = 3;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
-				int dmg = 10;
+				dmg = 10;
 				std::cout << "You launch the stone imbued with holy powers." << std::endl;
 				enemy->lowerHp(dmg);
 			}
@@ -558,7 +558,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				}
 				else if (weapon == "SPELLS")
 				{
-					magic->displaySpells();
+					player.getMagicBook()->displaySpells();
 				}
 				else
 					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
@@ -567,19 +567,19 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			if (weapon == "FIST")
 				dmg = 0;
 			else if (weapon == "SWORD")
-				int dmg = 2;
+				dmg = 2;
 			else if (weapon == "HOLY WATER")
-				int dmg = 50;
+				dmg = 50;
 			else if (weapon == "BANISH")
-				int dmg = 100;
+				dmg = 100;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
-				int dmg = 10;
+				dmg = 10;
 				std::cout << "You launch the stone imbued with holy powers." << std::endl;
 				enemy->lowerHp(dmg);
 			}
 			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
-				int dmg = 98;
+				dmg = 98;
 			enemy->lowerHp(dmg);
 			if (dmg == 0)
 				player.lowerHP();
@@ -638,7 +638,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				}
 				else if (weapon == "SPELLS")
 				{
-					magic.displaySpells();
+					player.getMagicBook()->displaySpells();
 				}
 				else
 					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
@@ -661,13 +661,13 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 
 			}
 			if (weapon == "HOLY WATER")
-				int dmg = 50;
+				dmg = 50;
 			else if (weapon == "BANISH")
-				int dmg = 100;
+				dmg = 100;
 			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
-				int dmg = 98;
+				dmg = 98;
 			else if (weapon == "BACKPACK")
-				int dmg = 101;
+				dmg = 101;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
 				int dmg = 10;
@@ -734,7 +734,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				}
 				else if (weapon == "SPELLS")
 				{
-					magic.displaySpells();
+					player.getMagicBook()->displaySpells();
 				}
 				else
 					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
