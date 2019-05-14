@@ -51,6 +51,8 @@ public:
 
 
 	//enemy getters
+	Wight* getWight();
+	Lich* getLich();
 	Ghoul* getGhoul();
 	Vampire* getVampire();
 	HeadlessPriest* getPriest();
@@ -63,7 +65,9 @@ public:
 	Snake* getSnake();
 	Wolf* getWolf();
 
-	//enemy setters
+	//enemy setter
+	void setLich(Lich* lich);
+	void setWight(Wight* wight);
 	void setGhoul(Ghoul* ghoul);
 	void setVampire(Vampire* vampire);
 	void setPriest(HeadlessPriest* priest);
