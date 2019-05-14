@@ -12,9 +12,9 @@
 #include "ButlerBoss.h"
 #include "Snake.h"
 #include "Wolf.h"
-#include "Vampire.h"
+#include "Lever.h"
 #include "Ghoul.h"
-
+#include "Vampire.h"
 
 class Room
 {
@@ -77,6 +77,9 @@ public:
 	void setWolf(Wolf* wolf);
 	// Event object to intiate certain game events
 	Event eventInRoom = Event();
+	
+
+	Lever* getLever();
 
 
 private:
@@ -95,6 +98,7 @@ private:
 
 	Snake* snake;
 	Wolf* wolf;
+
 	//description
 	std::string description;
 
@@ -109,4 +113,7 @@ private:
 	bool canLeaveEast = true;
 	bool canLeaveWest = true;
 	bool canLeaveSouth = true;
+
+	Lever* bossLever = new Lever();
+
 };

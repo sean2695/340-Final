@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Enemies\Creature">
       <UniqueIdentifier>{7921e22e-0ec5-41ab-9d0f-a08d007eddd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enemies\Monster">
+      <UniqueIdentifier>{ba1d0420-a18f-42b3-8c2c-1528af44563b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Monster">
+      <UniqueIdentifier>{d11cd7c0-347d-4b13-b957-f7900ddfd2b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Room.cpp">
@@ -141,15 +147,27 @@
     <ClCompile Include="Creature.cpp">
       <Filter>Source Files\Enemies\Creature</Filter>
     </ClCompile>
+    <ClCompile Include="Lever.cpp">
+      <Filter>Source Files\Interable Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Enemies\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghoul.cpp">
+      <Filter>Source Files\Enemies\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Vampire.cpp">
+      <Filter>Source Files\Enemies\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Lich.cpp">
+      <Filter>Source Files\Enemies\Undead</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Key.h">
@@ -229,6 +247,24 @@
     </ClInclude>
     <ClInclude Include="Snake.h">
       <Filter>Header Files\Enemies\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="Lever.h">
+      <Filter>Header Files\Interable Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files\Enemies\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghoul.h">
+      <Filter>Header Files\Enemies\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Vampire.h">
+      <Filter>Header Files\Enemies\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Lich.h">
+      <Filter>Header Files\Enemies\Undead</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

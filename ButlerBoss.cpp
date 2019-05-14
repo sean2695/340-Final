@@ -42,7 +42,7 @@ void ButlerBoss::lowerHp(int dmg)
 	if (dmg == 2)
 	{
 		std::cout << "You strike at the now embodied spirit with your fists, your punch striking it in the gut." << std::endl;
-		this->hp == hp - dmg;
+		this->hp = hp - dmg;
 	}
 	if (dmg == 25)
 	{
@@ -57,7 +57,7 @@ void ButlerBoss::lowerHp(int dmg)
 	{
 
 		std::cout << "The butler gasps as his transparent body solidifies into a solid mass." << std::endl;
-		this->hp == 10;
+		this->hp = 10;
 		this->isCorporal == true;
 	}
 	if (dmg == 95)

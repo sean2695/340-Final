@@ -162,11 +162,6 @@ Wolf* Room::getWolf()
 
 // setters for enemies
 
-void Room::setGhoul(Ghoul* ghoul)
-{
-	this->ghoul = ghoul;
-}
-
 void Room::setVampire(Vampire* vampire)
 {
 	this->vampire = vampire;
@@ -215,6 +210,16 @@ void Room::setWolf(Wolf* wolf)
 	this->wolf = wolf;
 }
 
+void Room::setGhoul(Ghoul* ghoul)
+{
+	this->ghoul = ghoul;
+}
+
+//getter to see if lever was pulled
+Lever* Room::getLever()
+{
+	return this->bossLever;
+}
 
 //remove items from room after they have been taken
 void Room::removeItems(std::string object)

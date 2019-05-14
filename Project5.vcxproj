@@ -26,11 +26,15 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="GhostVacuum.cpp" />
+    <ClCompile Include="Ghoul.cpp" />
     <ClCompile Include="HauntedArmor.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="HeadlessPriest.cpp" />
     <ClCompile Include="HolyWater.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Lever.cpp" />
+    <ClCompile Include="Lich.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Roomsetup.cpp" />
     <ClCompile Include="Journal.cpp" />
@@ -47,6 +51,7 @@
     <ClCompile Include="SuperPotion.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Undead.cpp" />
+    <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
@@ -58,11 +63,15 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="GhostVacuum.h" />
+    <ClInclude Include="Ghoul.h" />
     <ClInclude Include="HauntedArmor.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="HeadlessPriest.h" />
     <ClInclude Include="HolyWater.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Lever.h" />
+    <ClInclude Include="Lich.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="RoomSetup.h" />
     <ClInclude Include="Journal.h" />
@@ -78,6 +87,7 @@
     <ClInclude Include="SuperPotion.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Undead.h" />
+    <ClInclude Include="Vampire.h" />
     <ClInclude Include="Wolf.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>

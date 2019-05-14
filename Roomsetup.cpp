@@ -35,23 +35,23 @@ std::vector<Room*> RoomSetUp::MapMaker(std::vector<Room*> dungeon)
 	// Second level
 
 	//11 
-	dungeon.push_back(new Room("Torch room"));
+	dungeon.push_back(new Room("You find yourself in a desolate cavern. The walls are covered in glowing plants. The room is bare, and to the east is a small opening, and to the west is a passage."));
 	//12
-	dungeon.push_back(new Room("Vampire's Lair"));
+	dungeon.push_back(new Room("You crawl through to a torch lit chamber cut off from the rock. On one end standing up right is a black wooden coffin. To the west lays the openeing you came from."));
 	//13
-	dungeon.push_back(new Room("Wolf Den"));
+	dungeon.push_back(new Room("A dark open cavern lies before you. You hear the soft growl of some kind of animal coming from the back of the room. To the north lies a lit hallway, to the east is a passageway."));
 	//14
-	dungeon.push_back(new Room("Empty"));
+	dungeon.push_back(new Room("A room that looks it was hand carved lit with torches greets you. To the north is a crack in the wall just big enough to move through, to the east is an arched passageway, to south is dark hallway."));
 	//15
-	dungeon.push_back(new Room("Wight room/Switch 1"));
+	dungeon.push_back(new Room("A room with a crack in the ceiling letting light in from above. Ivy grows to off a cliff on the side. To the west lies an arched doorway, to the north is a long tunnel"));
 	//16
-	dungeon.push_back(new Room("Lake with enchanted sword"));
+	dungeon.push_back(new Room("A cavern with more gwoing lichen on the walls. To the north of the room lies a small lake which seems to be glowing. To the east is an doorway with a wooden door broken of the hinges, to south is a long tunnel, to the west is passageway."));
 	//17
-	dungeon.push_back(new Room("Snake /  Switch 2"));
+	dungeon.push_back(new Room("A bare cavern with a loud hissing. A rock justs out of the wall in the west of the room. To the east is a passageway to the south is a crack in the wall large enough to wiggle through."));
 	//18
-	dungeon.push_back(new Room("Ghoul room"));
+	dungeon.push_back(new Room("A small corridor which was obviously made witha purpose, a groaning sounds from the shadows. The end of the passage lies a large door marked with runes and words that read 'Here lies the greatest evil.'"));
 	//19
-	dungeon.push_back(new Room("Lich Chamber/ Boss Fight"));
+	dungeon.push_back(new Room("A large chamber, lit from all sides by light from an unknown source. It is constuctred to look like a temple, and upon the altar a decrepit figure looms. As you approach it rises up, and you see a grotesque face partially hidden beneath the hood of a cloak. It cackles at you and then from nowhere and everywhere you hear these words pound agaisnt from outside and inside your head 'You've done well to make it this far, and I must show my gratitude for breaking the seal upon that door and allowing me my freedom. Let me reward you with a swift death and becoming my latest undead thrall' "));
 
 
 
@@ -111,6 +111,8 @@ std::vector<Room*> RoomSetUp::setItems(std::vector<Room*> dungeon)
 	dungeon[9]->addItem(Letter("LETTER"));
 	dungeon[9]->addItem(GhostVacuum("BACKPACK"));
 
+	dungeon[17]->addItem(Sword("ENCHANCTED SWORD"));
+	
 	return dungeon;
 }
 
@@ -127,8 +129,12 @@ std::vector<Room*> RoomSetUp::setEnemies(std::vector<Room*> dungeon)
 	dungeon[10]->setButlerBoss(new ButlerBoss("Carson"));
 
 	//add enemies to second		
-
-
+	dungeon[12]->setVampire(new Vampire("Vampire"));
+	dungeon[13]->setWolf(new Wolf("Wolf"));
+	//dungeon[15]->setWight(new Wight("Wight"));
+	dungeon[17]->setSnake(new Snake("Snake"));
+	dungeon[18]->setGhoul(new Ghoul("Ghoul"));
+	//dungeon[19]->setLich(new Lich("Lich"));
 
 	return dungeon;
 }

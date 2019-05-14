@@ -10,7 +10,7 @@ Monster::Monster(std::string name)
 
 	this->name = name;
 
-	this->hp = 5;
+	this->hp = 150;
 
 }
 
