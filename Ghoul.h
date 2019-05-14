@@ -18,6 +18,7 @@ public:
 
 	void attack();
 
-
-
+	//lower hp based on dmg
+	void lowerHp(int dmg);
 };
+

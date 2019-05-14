@@ -184,7 +184,7 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			if (room->getPoltergeist()->getisDefeated() == false)
 			{
 				std::cout << "You hear a voice whisper from behind you, stay away there!" << std::endl;
-				*this = combatLoop(room, dungeon, *this);\
+				*this = combatLoop(room, dungeon, *this);
 			}
 		}
 		// if they search the shining the bookcase opens
@@ -234,23 +234,32 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 		if (searching.find("COFFIN") != std::string::npos)
 		{
 			std::cout << "You pry off the lid to the coffin and see the eyes of a vampire staring back at you. 'Who wakes me from my slumber' " << std::endl;
+			*this = combatLoop(room, dungeon, *this);
 		}
 		else
 			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 13:
+		if (searching.find("GROWL") != std::string::npos || searching.find("SOUTH") != std::string::npos)
+		{
+			*this = combatLoop(room, dungeon, *this);
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 14:
 		break;
 	case 15:
-		if (searching.find("ROCK") != std::string::npos)
+		if (searching.find("IVY") != std::string::npos)
 		{
-			std::cout << "You lift the rock up to notice a dug hole beneath it with a lever hidden there." << std::endl;
+			std::cout << "A groan sounds from above on the ledge, a wight leaps down to attack you!" << std::endl;
+			*this = combatLoop(room, dungeon, *this);
+			std::cout << "You push aside the ivy and see a lever behind it." << std::endl;
 		}
 		else if (searching.find("LEVER") != std::string::npos)
 		{
 			std::cout << "You hear a soft click as you pull the lever." << std::endl;
-			dungeon[15]->getLever()->setIsPulled();
+			dungeon[17]->getLever()->setIsPulled();
 		}
 		else
 			std::cout << "There is nothing of interest in that object" << std::endl;
@@ -264,14 +273,18 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 17:
-		if (searching.find("IVY") != std::string::npos)
+		if (searching.find("ROCK") != std::string::npos)
 		{
-			std::cout << "You push aside the ivy and see a lever behind it." << std::endl;
+			std::cout << "You lift the rock up to notice a dug hole beneath it with a lever hidden there." << std::endl;
 		}
 		else if (searching.find("LEVER") != std::string::npos)
 		{
 			std::cout << "You hear a soft click as you pull the lever." << std::endl;
-			dungeon[17]->getLever()->setIsPulled();
+			dungeon[15]->getLever()->setIsPulled();
+		}
+		else if (searching.find("HISS") != std::string::npos)
+		{
+			*this = combatLoop(room, dungeon, *this);
 		}
 		else
 			std::cout << "There is nothing of interest in that object" << std::endl;
@@ -287,6 +300,13 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			else
 				std::cout << "The door is locked with no keyhole in sight." << std::endl;
 		}
+		else if (searching.find("SHADOW") != std::string::npos || searching.find("GROAN") != std::string::npos)
+		{
+			std::cout << "A horryfing ghoul jumps from the shadows." << std::endl;
+			*this = combatLoop(room, dungeon, *this);
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 19:
 		break;
@@ -556,7 +576,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				{
 					player.displayInventory();
 				}
-				else if (weapon == "SPELLS")
+				else if (weapon == "SPELLS" && player.getMagicBook()->getCanUseMagic())
 				{
 					player.getMagicBook()->displaySpells();
 				}
@@ -650,14 +670,14 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				if (!enemy->getisCorporal())
 					dmg = -1;
 				else
-					int dmg = 1;
+					dmg = 1;
 			}
 			if (weapon == "SWORD")
 			{
 				if (!enemy->getisCorporal())
-					int dmg = 0;
+					dmg = 0;
 				else
-					int dmg = 2;
+					dmg = 2;
 
 			}
 			if (weapon == "HOLY WATER")
@@ -670,7 +690,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				dmg = 101;
 			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
 			{
-				int dmg = 10;
+				dmg = 10;
 				std::cout << "You launch the stone imbued with holy powers." << std::endl;
 				enemy->lowerHp(dmg);
 			}
@@ -759,12 +779,12 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				}
 			}
 			else if (weapon == "HOLY WATER")
-				int dmg = 25;
+				dmg = 25;
 			else if (weapon == "BANISH")
 				dmg = -2;
 			else if (weapon == "MAKE CORPORAL" && enemy->getisCorporal() == false)
 			{
-				int dmg = 90;
+				dmg = 90;
 			}
 			else if (weapon == "BACKPACK")
 			{
@@ -998,7 +1018,167 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			enemy->resetHp();
 		}
 	}
+	else if (room == dungeon[12] && room->getVampire()->getisDefeated() == false)
+	{
+		Vampire* enemy = room->getVampire();
+		std::cout << "The " + enemy->getName() + " attacks!" << std::endl;
+		//continue running loop until player or enemy are dead
 
+		while (player.getHp() > 0)
+		{
+			MagicBook magic = MagicBook();
+			//pick weapon and check if its valid
+
+			while (true)
+			{
+				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession";
+				if (player.getMagicBook()->getCanUseMagic())
+				{
+					std::cout << " or type spells to see a list of spells to use" << std::endl;
+				}
+				else
+					std::cout << std::endl;
+				std::getline(std::cin, weapon);
+				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || weapon == "ENCHANTED SWORD" && this->inventoryContains("ENCHANTED SWORD") || weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+				{
+					break;
+				}
+				else if (weapon == "INVENTORY")
+				{
+					player.displayInventory();
+				}
+				else if (weapon == "SPELLS")
+				{
+					player.getMagicBook()->displaySpells();
+				}
+				else
+					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
+			}
+			//depending on which weapon selected preform action
+
+			if (weapon == "FIST")
+			{
+				dmg = 0;
+			}
+			if (weapon == "SWORD")
+			{
+				dmg = 40;
+			}
+			if (weapon == "ENCHANTED SWORD")
+			{
+				dmg == 150;
+			}
+			if (weapon == "HOLY WATER")
+				dmg = 50;
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				dmg = 100;
+			}
+			enemy->lowerHp(dmg);
+			// if enemy isn't dead it attacks
+			if (enemy->getHp() > 0)
+			{
+				enemy->attack();
+				player.lowerHP();
+				player.lowerHP();
+			}
+			else
+				break;
+		}
+		// if player hp is 0 then game over
+		if (player.getHp() <= 0)
+		{
+			std::cout << "Your life bleeds from your body, but you feel your spirit remain trapped in the home, cursed to forever be a spirit haunting the grounds like so many others." << std::endl;
+			int a;
+			std::cin >> a;
+			exit(0);
+		}
+		//otherwise set the enemy to defeated
+		player.getMagicBook()->expGain(enemy->getName());
+		std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
+		room->getVampire()->setisDefeated();
+	}
+
+	else if ((room == dungeon[5] && room->getPoltergeist()->getisDefeated() == false))
+	{
+		Ghoul* enemy = room->getGhoul();
+		std::cout << "The " + enemy->getName() + " attacks!" << std::endl;
+		//continue running loop until player or enemy are dead
+
+		while (player.getHp() > 0)
+		{
+			MagicBook magic = MagicBook();
+			//pick weapon and check if its valid
+
+			while (true)
+			{
+				std::cout << "Enter a weapon to use (fist or item) type inventory to see the items in your possession";
+				if (player.getMagicBook()->getCanUseMagic())
+				{
+					std::cout << " or type spells to see a list of spells to use" << std::endl;
+				}
+				else
+					std::cout << std::endl;
+				std::getline(std::cin, weapon);
+				if (weapon == "FIST" || (weapon == "SWORD" && this->inventoryContains("SWORD")) || (weapon == "HOLY WATER" && player.inventoryContains("HOLY WATER")) || weapon == "ENCHANTED SWORD" && this->inventoryContains("ENCHANTED SWORD")  || weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+				{
+					break;
+				}
+				else if (weapon == "INVENTORY")
+				{
+					player.displayInventory();
+				}
+				else if (weapon == "SPELLS")
+				{
+					player.getMagicBook()->displaySpells();
+				}
+				else
+					std::cout << "You want to use " << weapon << " to attack?" << std::endl;
+			}
+			//depending on which weapon selected preform action
+
+			if (weapon == "FIST")
+			{
+				dmg = 0;
+			}
+			if (weapon == "SWORD")
+			{
+				dmg = 40;
+			}
+			if (weapon == "ENCHANTED SWORD")
+			{
+				dmg == 150;
+			}
+			if (weapon == "HOLY WATER")
+				dmg = 50;
+			else if (weapon == "BLESSED ROCK" && this->inventoryContains("BLESSED ROCK"))
+			{
+				dmg = 100;
+			}
+			enemy->lowerHp(dmg);
+			// if enemy isn't dead it attacks
+			if (enemy->getHp() > 0)
+			{
+				enemy->attack();
+				player.lowerHP();
+				player.lowerHP();
+			}
+			else
+				break;
+		}
+		// if player hp is 0 then game over
+		if (player.getHp() <= 0)
+		{
+			std::cout << "Your life bleeds from your body, but you feel your spirit remain trapped in the home, cursed to forever be a spirit haunting the grounds like so many others." << std::endl;
+			int a;
+			std::cin >> a;
+			exit(0);
+		}
+		//otherwise set the enemy to defeated
+		player.getMagicBook()->expGain(enemy->getName());
+		std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
+		room->getGhoul()->setisDefeated();
+	}
 	//COMBAT LOOP ENDS HERE
 	srand(time(NULL));
 

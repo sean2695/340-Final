@@ -77,6 +77,7 @@ public:
 	void setWolf(Wolf* wolf);
 	// Event object to intiate certain game events
 	Event eventInRoom = Event();
+	
 
 	Lever* getLever();
 
@@ -97,6 +98,7 @@ private:
 
 	Snake* snake;
 	Wolf* wolf;
+
 	//description
 	std::string description;
 
@@ -113,4 +115,5 @@ private:
 	bool canLeaveSouth = true;
 
 	Lever* bossLever = new Lever();
+
 };

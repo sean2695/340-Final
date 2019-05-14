@@ -26,7 +26,7 @@ void HauntedArmor::lowerHp(int dmg) {
 	if (dmg == 50)
 	{
 		std::cout << "Mist pours from the hollow part of the armor as a scream rings out." << std::endl;
-		this->hp == hp - dmg;
+		this->hp = hp - dmg;
 	}
 	if (dmg == 100)
 	{

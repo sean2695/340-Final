@@ -163,7 +163,7 @@ int main()
 						 "USE (item) to use an item (only works in certain scenarios)" << std::endl;
 		}
 	}
-
+	currentRoom = dungeon[11];
 	while (userInput != "QUIT" && secondLevel)
 	{
 		// if player is in the final room start the boss fight

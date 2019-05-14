@@ -9,4 +9,6 @@ public:
 	//function to call to attack
 	void attack();
 
+	void lowerHp(int dmg);
 };
+

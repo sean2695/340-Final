@@ -111,7 +111,7 @@ std::vector<Room*> RoomSetUp::setItems(std::vector<Room*> dungeon)
 	dungeon[9]->addItem(Letter("LETTER"));
 	dungeon[9]->addItem(GhostVacuum("BACKPACK"));
 
-	dungeon[17]->addItem(Sword("ENCHANCTED SWORDS"));
+	dungeon[17]->addItem(Sword("ENCHANCTED SWORD"));
 	
 	return dungeon;
 }
@@ -129,11 +129,11 @@ std::vector<Room*> RoomSetUp::setEnemies(std::vector<Room*> dungeon)
 	dungeon[10]->setButlerBoss(new ButlerBoss("Carson"));
 
 	//add enemies to second		
-	//dungeon[12]->setVampire(new Vampire("Vampire"));
+	dungeon[12]->setVampire(new Vampire("Vampire"));
 	dungeon[13]->setWolf(new Wolf("Wolf"));
 	//dungeon[15]->setWight(new Wight("Wight"));
 	dungeon[17]->setSnake(new Snake("Snake"));
-	//dungeon[18]->setButlerBoss(new Ghoul("Ghoul"));
+	dungeon[18]->setGhoul(new Ghoul("Ghoul"));
 	//dungeon[19]->setLich(new Lich("Lich"));
 
 	return dungeon;

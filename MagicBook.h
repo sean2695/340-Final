@@ -20,6 +20,6 @@ public:
 
 private:
 	int magicExp = 0;
-	int magicLevel = 3;
+	int magicLevel = 0;
 	bool canUseMagic = false;
 };

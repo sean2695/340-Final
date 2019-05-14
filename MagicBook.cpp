@@ -10,16 +10,16 @@ MagicBook::MagicBook()
 //reads the spells you can use
 void MagicBook::displaySpells()
 {
-	if (magicLevel == 0)
+	if (this->magicLevel == 0)
 		std::cout << "Do I need to spell it out for you, you have no magic yet." << std::endl;
-	else if (magicLevel == 1)
+	else if (this->magicLevel == 1)
 		std::cout << "The spells in this tome are make corporal." << std::endl;
-	else if (magicLevel == 2)
+	else if (this->magicLevel == 2)
 		std::cout << "Spells are are make corporal and banish" << std::endl;
-	else if (magicLevel == 3)
+	else if (this->magicLevel == 3)
 		std::cout << "The spells in this tome are make corporal, banish, and Charm." << std::endl;
-	else if (magicLevel == 4)
-		int a = 1;
+	else if (this->magicLevel == 4)
+		std::cout << "The spells in this tome are make corporal, banish, charm, and holy smite." << std::endl;;
 }
 
 void MagicBook::increaseMagicLevel()
