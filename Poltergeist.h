@@ -9,5 +9,6 @@ public:
 	// function call attack for enemy
 	void haunt();
 
+	void lowerHp(int dmg);
 };
 

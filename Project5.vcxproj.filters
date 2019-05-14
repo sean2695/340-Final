@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Enemies\Undead">
       <UniqueIdentifier>{02f3c683-f4e8-4c8b-9d37-797ed60a3d04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enemies\Creature">
+      <UniqueIdentifier>{d5e7d72e-e288-4de7-b47b-161fc5bc868f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Creature">
+      <UniqueIdentifier>{0b162210-0d68-40cf-b279-187fd132e817}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Room.cpp">
@@ -117,6 +123,15 @@
     <ClCompile Include="ButlerBoss.cpp">
       <Filter>Source Files\Enemies\Ghost</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Creature.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Snake.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Wolf.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room.h">
@@ -187,6 +202,15 @@
     </ClInclude>
     <ClInclude Include="ButlerBoss.h">
       <Filter>Header Files\Enemies\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Creature.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Snake.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Wolf.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

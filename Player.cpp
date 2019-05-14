@@ -792,7 +792,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 				break;
 			}
 			enemy->lowerSwarmCheck();
-			
+
 			enemy->resetHp();
 		}
 	}
@@ -885,3 +885,4 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 		}
 	}
 	return player;
+}

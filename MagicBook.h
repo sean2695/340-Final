@@ -1,4 +1,4 @@
-#pragma onc
+#pragma once
 #include "Ghost.h"
 
 class MagicBook

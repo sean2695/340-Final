@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Creature.cpp" />
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Snake.cpp" />
+    <ClCompile Include="..\..\..\source\repos\Clone game\Project5\Wolf.cpp" />
     <ClCompile Include="ButlerBoss.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -45,6 +48,9 @@
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Creature.h" />
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Snake.h" />
+    <ClInclude Include="..\..\..\source\repos\Clone game\Project5\Wolf.h" />
     <ClInclude Include="ButlerBoss.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Event.h" />

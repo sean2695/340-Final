@@ -7,8 +7,6 @@ class Undead
 public:
 	// constuctor for Undead abstract class
 	Undead(std::string name);
-	//lowers Undead hp
-	void lowerHp();
 	// return the hp
 	int getHp();
 	// returns name

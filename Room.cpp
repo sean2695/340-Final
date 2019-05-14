@@ -70,7 +70,7 @@ void Room::setCanLeaveEast(bool canLeave)
 	this->canLeaveEast = canLeave;
 }
 
-void Room::setCanLeaveSouth(bool canLeave) 
+void Room::setCanLeaveSouth(bool canLeave)
 {
 	this->canLeaveSouth = canLeave;
 }
@@ -141,6 +141,16 @@ ButlerBoss* Room::getButler()
 	return this->butler;
 }
 
+Snake* Room::getSnake()
+{
+	return this->snake;
+}
+
+Wolf* Room::getWolf()
+{
+	return this->wolf;
+}
+
 // setters for enemies
 
 void Room::setZombie(Zombie* zombie)
@@ -176,6 +186,17 @@ void Room::setButlerBoss(ButlerBoss* butler)
 	this->butler = butler;
 }
 
+void Room::setSnake(Snake* snake)
+{
+	this->snake = snake;
+}
+
+void Room::setWolf(Wolf* wolf)
+{
+	this->wolf = wolf;
+}
+
+
 //remove items from room after they have been taken
 void Room::removeItems(std::string object)
 {
@@ -187,3 +208,4 @@ void Room::removeItems(std::string object)
 		index++;
 	}
 }
+

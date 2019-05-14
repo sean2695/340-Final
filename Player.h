@@ -14,7 +14,7 @@ public:
 
 	//constructor for player
 	Player();
-	
+
 	//player commands
 	Room* search(std::vector <Room*> dungeon, Room* currentRoom, std::string searching);
 	void take(Item item);
@@ -28,13 +28,13 @@ public:
 	std::vector <Item> getInventory();
 	//getter for the player Hp
 	int getHp();
-	// getter for the boolean to allow magic
-	bool getCanUseMagic();
-	// setter to allow magic
-	void setCanUseMagic();
+
+	void setMagic();
+
+	MagicBook* getMagicBook();
+
 	//method to run to intiate combat
 	Player combatLoop(Room* room, std::vector<Room*> dungeon, Player player);
-
 
 private:
 	//player hp
@@ -42,6 +42,7 @@ private:
 	//player inventory
 	std::vector <Item> inventory;
 	//boolean to express if player can use magic
-	bool canUseMagic = false;
+
+	MagicBook* magic = new MagicBook();
 };
 
