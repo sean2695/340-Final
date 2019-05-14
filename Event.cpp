@@ -46,3 +46,15 @@ void Event::BookshelfMoves()
 {
 	std::cout << "As you pull the book you hear a click, and the bookshelf slides away to reveal an open doorframe leading into another room to the east." << std::endl;
 }
+
+void Event::ghouls_surface()
+{
+	std::cout << "As you enter the cavern you see nothing but the glowing eyes of the shapeshifting ghouls that are hungry to rip you apart" << std::endl;
+}
+
+void Event::vampireFeeds()
+{
+	std::cout << "Vampieres feed on your dead body" << std::endl;
+}
+
+
