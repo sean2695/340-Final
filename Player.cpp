@@ -787,10 +787,12 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			if (!enemy->getSwarm())
 			{
 				std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
+				player.getMagicBook()->expGain(enemy->getName());
 				enemy->setIsDefeated();
 				break;
 			}
 			enemy->lowerSwarmCheck();
+			
 			enemy->resetHp();
 		}
 	}
@@ -873,7 +875,8 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 
 			if (!enemy->getPack())
 			{
-
+				std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
+				player.getMagicBook()->expGain(enemy->getName());
 				enemy->setIsDefeated();
 				break;
 			}
