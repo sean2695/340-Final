@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlessedRock.cpp" />
     <ClCompile Include="ButlerBoss.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="HeadlessPriest.cpp" />
     <ClCompile Include="HolyWater.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Roomsetup.cpp" />
     <ClCompile Include="Journal.cpp" />
     <ClCompile Include="Key.cpp" />
@@ -40,11 +42,13 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Shovel.cpp" />
     <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="SuperPotion.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Undead.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlessedRock.h" />
     <ClInclude Include="ButlerBoss.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Event.h" />
@@ -55,6 +59,7 @@
     <ClInclude Include="HeadlessPriest.h" />
     <ClInclude Include="HolyWater.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Potion.h" />
     <ClInclude Include="RoomSetup.h" />
     <ClInclude Include="Journal.h" />
     <ClInclude Include="Key.h" />
@@ -65,6 +70,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="Shovel.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="SuperPotion.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Undead.h" />
     <ClInclude Include="Zombie.h" />
