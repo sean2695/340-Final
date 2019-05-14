@@ -10,6 +10,7 @@
 #include "HeadlessPriest.h"
 #include "HauntedArmor.h"
 #include "ButlerBoss.h"
+#include "Vampire.h"
 
 
 class Room
@@ -47,6 +48,7 @@ public:
 
 
 	//enemy getters
+	Vampire* getVampire();
 	HeadlessPriest* getPriest();
 	Zombie* getZombie();
 	Skeleton* getSkeleton();
@@ -55,6 +57,7 @@ public:
 	ButlerBoss* getButler();
 	
 	//enemy setters
+	void setVampire(Vampire* vampire);
 	void setPriest(HeadlessPriest* priest);
 	void setZombie(Zombie* zombie);
 	void setSkeleton(Skeleton* skeleton);
@@ -71,6 +74,7 @@ private:
 		//Items
 		std::vector <Item> roomItems;
 		//Enemies
+                Vampire* vampire;	
 		Zombie* zombie;
 		Skeleton* skeleton;
 		HeadlessPriest* priest;
