@@ -196,6 +196,10 @@ void Room::setWolf(Wolf* wolf)
 	this->wolf = wolf;
 }
 
+Lever* Room::getLever()
+{
+	return this->bossLever;
+}
 
 //remove items from room after they have been taken
 void Room::removeItems(std::string object)

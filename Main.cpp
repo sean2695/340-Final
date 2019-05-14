@@ -31,6 +31,7 @@ int main()
 	dungeon[6]->setCanLeaveNorth(false);
 	Door LibraryDoor = Door("LibraryKey");
 	dungeon[8]->setCanLeaveEast(false);
+	dungeon[18]->setCanLeaveNorth(false);
 
 
 	//set currentRoom equal to the first

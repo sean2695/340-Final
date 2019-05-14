@@ -12,7 +12,7 @@
 #include "ButlerBoss.h"
 #include "Snake.h"
 #include "Wolf.h"
-
+#include "Lever.h"
 
 class Room
 {
@@ -72,6 +72,8 @@ public:
 	// Event object to intiate certain game events
 	Event eventInRoom = Event();
 
+	Lever* getLever();
+
 
 private:
 
@@ -101,4 +103,6 @@ private:
 	bool canLeaveEast = true;
 	bool canLeaveWest = true;
 	bool canLeaveSouth = true;
+
+	Lever* bossLever = new Lever();
 };

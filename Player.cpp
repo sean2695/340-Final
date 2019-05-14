@@ -149,12 +149,12 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 		{
 			if (room->getZombie()->getisDefeated() == false)
 			{
-				eventInRoom.ZombieAttacksFromCloset();
-				*this = combatLoop(room, dungeon, *this);
+			eventInRoom.ZombieAttacksFromCloset();
+			*this = combatLoop(room, dungeon, *this);
 			}
 			else
 			{
-				std::cout << "An empty closet, clutter with the remains of the slain zombie." << std::endl;
+			std::cout << "An empty closet, clutter with the remains of the slain zombie." << std::endl;
 			}
 		}
 		if (searching.find("WINDOW") != std::string::npos)
@@ -227,6 +227,68 @@ Room* Player::search(std::vector<Room*> dungeon, Room* room, std::string searchi
 			std::cout << "There is nothing of interest in that object" << std::endl;
 		break;
 	case 10:
+		break;
+	case 11:
+		break;
+	case 12:
+		if (searching.find("COFFIN") != std::string::npos)
+		{
+			std::cout << "You pry off the lid to the coffin and see the eyes of a vampire staring back at you. 'Who wakes me from my slumber' " << std::endl;
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
+		break;
+	case 13:
+		break;
+	case 14:
+		break;
+	case 15:
+		if (searching.find("ROCK") != std::string::npos)
+		{
+			std::cout << "You lift the rock up to notice a dug hole beneath it with a lever hidden there." << std::endl;
+		}
+		else if (searching.find("LEVER") != std::string::npos)
+		{
+			std::cout << "You hear a soft click as you pull the lever." << std::endl;
+			dungeon[15]->getLever()->setIsPulled();
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
+		break;
+	case 16:
+		if (searching.find("LAKE") != std::string::npos)
+		{
+			std::cout << "You look into the cold waters of the lake, and notice the glow to belong to a sword shich blades shines as if by magic." << std::endl;
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
+		break;
+	case 17:
+		if (searching.find("IVY") != std::string::npos)
+		{
+			std::cout << "You push aside the ivy and see a lever behind it." << std::endl;
+		}
+		else if (searching.find("LEVER") != std::string::npos)
+		{
+			std::cout << "You hear a soft click as you pull the lever." << std::endl;
+			dungeon[17]->getLever()->setIsPulled();
+		}
+		else
+			std::cout << "There is nothing of interest in that object" << std::endl;
+		break;
+	case 18:
+		if (searching.find("DOOR") != std::string::npos || searching.find("EXIT") != std::string::npos)
+		{
+			if (dungeon[15]->getLever() || dungeon[17]->getLever())
+			{
+				std::cout << "The giant door opens and an ominous hallway lies beyond it." << std::endl;
+				dungeon[18]->setCanLeaveNorth(true);
+			}
+			else
+				std::cout << "The door is locked with no keyhole in sight." << std::endl;
+		}
+		break;
+	case 19:
 		break;
 	}
 	return room;
@@ -703,9 +765,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			std::cin >> a;
 			exit(0);
 		}
-
-		// otherwise end the game here
-		std::cout << "The Butler's final cries echo from around the room as he dissapates into nothing. The basement door creaks open, allowing you to leave this wretched place and never return. Congratulations you have won!" << std::endl;
+		std::cout << "The Butler's final cries echo from around the room as he dissapates into nothing. You think you are safe for only a moment before the floor cracks and a chasm in the earth splits beneath your feet. You plummet down into its cold dark clutches." << std::endl;
 	}
 	else if (room == dungeon[17])
 	{
@@ -786,6 +846,7 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			}
 			if (!enemy->getSwarm())
 			{
+				player.getMagicBook()->expGain(enemy->getName());
 				std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
 				enemy->setIsDefeated();
 				break;
@@ -873,7 +934,8 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 
 			if (!enemy->getPack())
 			{
-
+				player.getMagicBook()->expGain(enemy->getName());
+				std::cout << "The " + enemy->getName() + " falls to your attack" << std::endl;
 				enemy->setIsDefeated();
 				break;
 			}
@@ -881,7 +943,6 @@ Player Player::combatLoop(Room* room, std::vector<Room*> dungeon, Player player)
 			enemy->resetHp();
 		}
 	}
-	return player;
 
 	//COMBAT LOOP ENDS HERE
 	srand(time(NULL));
