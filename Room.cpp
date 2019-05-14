@@ -111,6 +111,14 @@ void Room::setCanTakeItems()
 
 //get enemies from room
 
+Ghoul* Room::getghoul()
+
+{
+
+	return this->ghoul;
+
+}
+
 Vampire* Room::getVampire()
 {
 	return this->vampire;
@@ -149,6 +157,11 @@ ButlerBoss* Room::getButler()
 }
 
 // setters for enemies
+
+void Room::setGhoul(Ghoul* ghoul)
+{
+	this->ghoul = ghoul;
+}
 
 void Room::setVampire(Vampire* vampire)
 {
