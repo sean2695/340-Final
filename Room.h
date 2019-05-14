@@ -10,6 +10,8 @@
 #include "HeadlessPriest.h"
 #include "HauntedArmor.h"
 #include "ButlerBoss.h"
+#include "Snake.h"
+#include "Wolf.h"
 
 
 class Room
@@ -32,7 +34,7 @@ public:
 	//getters to see if you can leave
 	bool getCanleaveNorth();
 	bool getCanLeaveEast();
-	
+
 	// return the vector of items in room
 	std::vector<Item> getItemsInRoom();
 	// add an item to the room's vector of items
@@ -43,7 +45,7 @@ public:
 	bool cantakeItems = false;
 	//remove items from the room's vector
 	void removeItems(std::string object);
-	
+
 
 
 	//enemy getters
@@ -53,7 +55,10 @@ public:
 	HauntedArmor* getArmor();
 	Poltergeist* getPoltergeist();
 	ButlerBoss* getButler();
-	
+
+	Snake* getSnake();
+	Wolf* getWolf();
+
 	//enemy setters
 	void setPriest(HeadlessPriest* priest);
 	void setZombie(Zombie* zombie);
@@ -62,34 +67,38 @@ public:
 	void setPoltergeist(Poltergeist* poltergeist);
 	void setButlerBoss(ButlerBoss* butler);
 
+	void setSnake(Snake* snake);
+	void setWolf(Wolf* wolf);
 	// Event object to intiate certain game events
 	Event eventInRoom = Event();
-	
+
 
 private:
-	
-		//Items
-		std::vector <Item> roomItems;
-		//Enemies
-		Zombie* zombie;
-		Skeleton* skeleton;
-		HeadlessPriest* priest;
-		Poltergeist* poltergeist;
-		HauntedArmor* armor;
-		ButlerBoss* butler;
-		//description
-		std::string description;
 
-		//Connections to other rooms
-		Room* northRoom;
-		Room* eastRoom;
-		Room* westRoom;
-		Room* southRoom;
+	//Items
+	std::vector <Item> roomItems;
+	//Enemies
+	Zombie* zombie;
+	Skeleton* skeleton;
+	HeadlessPriest* priest;
+	Poltergeist* poltergeist;
+	HauntedArmor* armor;
+	ButlerBoss* butler;
 
-		//If the door is locked
-		bool canLeaveNorth = true;
-		bool canLeaveEast = true;
-		bool canLeaveWest = true;
-		bool canLeaveSouth = true;
+	Snake* snake;
+	Wolf* wolf;
+	//description
+	std::string description;
+
+	//Connections to other rooms
+	Room* northRoom;
+	Room* eastRoom;
+	Room* westRoom;
+	Room* southRoom;
+
+	//If the door is locked
+	bool canLeaveNorth = true;
+	bool canLeaveEast = true;
+	bool canLeaveWest = true;
+	bool canLeaveSouth = true;
 };
-

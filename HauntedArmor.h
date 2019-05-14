@@ -9,5 +9,7 @@ public:
 	// function to call attack
 	void attack();
 
+	void lowerHp(int dmg);
+
 };
 

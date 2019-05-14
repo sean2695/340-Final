@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Enemies\Undead">
       <UniqueIdentifier>{02f3c683-f4e8-4c8b-9d37-797ed60a3d04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enemies\Creature">
+      <UniqueIdentifier>{4fa7ba72-efba-4c43-ab3c-20666e8dfb72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Creature">
+      <UniqueIdentifier>{7921e22e-0ec5-41ab-9d0f-a08d007eddd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Room.cpp">
@@ -126,6 +132,15 @@
     <ClCompile Include="BlessedRock.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Source Files\Enemies\Creature</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room.h">
@@ -205,6 +220,15 @@
     </ClInclude>
     <ClInclude Include="BlessedRock.h">
       <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Wolf.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Header Files\Enemies\Creature</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

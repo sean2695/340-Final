@@ -13,8 +13,6 @@ public:
 	//setter for isDefeated
 	void setDefeated();
 	// function to lower the Ghost's hp
-	void lowerHp(int dmg);
-	// getter to return isDefeated
 	bool getisDefeated();
 	// getter to return isCorporal
 	bool getisCorporal();
@@ -33,4 +31,3 @@ protected:
 	//hit points of enemy
 	int hp = 100;
 };
-

@@ -26,4 +26,3 @@ protected:
 	//boolean to check if defeated
 	bool isDefeated = false;
 };
-
