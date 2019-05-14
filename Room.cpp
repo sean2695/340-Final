@@ -111,7 +111,7 @@ void Room::setCanTakeItems()
 
 //get enemies from room
 
-Ghoul* Room::getghoul()
+Ghoul* Room::getGhoul()
 
 {
 
